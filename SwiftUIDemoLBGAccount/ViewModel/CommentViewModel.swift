@@ -8,14 +8,14 @@
 import Foundation
 import Combine
 
-class CommentViewModel: ObservableObject {
+class CommentViewModel {
     private let commentViewServices: CommentViewServiceDelegate
     
     init(commentViewServices: CommentViewServiceDelegate = CommentViewService()) {
         self.commentViewServices = commentViewServices
     }
     
-    @Published var comments = [CommentModel]()
+    var comments = [CommentModel]()
     
     func fetchComments() {
         commentViewServices.getComments {[weak self] result in

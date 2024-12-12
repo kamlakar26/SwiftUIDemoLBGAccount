@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CommentsHomeView: View {
-    @ObservedObject private var viewModel = CommentViewModel()
+    private var viewModel = CommentViewModel()
     var body: some View {
         NavigationView {
             VStack {

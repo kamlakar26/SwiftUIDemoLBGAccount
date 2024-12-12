@@ -24,15 +24,12 @@ final class CommentViewModelTests: XCTestCase {
         mockServices.result = .success(comments)
         let sut = CommentViewModel(commentViewServices: mockServices)
         let expectation = expectation(description: "Fetching Comments")
-        var cancellable: AnyCancellable?
-        cancellable = sut.$comments
-            .dropFirst()
-            .sink(receiveValue: { value in
-                expectation.fulfill()
-            })
-        
         sut.fetchComments()
         wait(for: [expectation], timeout: 5)
         XCTAssert(!sut.comments.isEmpty)
     }
 }
+
+
+
+
